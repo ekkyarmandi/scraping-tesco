@@ -6,7 +6,7 @@ import requests
 import asyncio
 
 # import logic libraries
-from Tesco import logic
+import logic
 from printer import print_green, print_red, print_yellow
 
 # get the start input
@@ -20,13 +20,11 @@ print("program start..")
 
 # prepare the destionation folder
 dest_folder = "./Tesco/data/"
+speed = [] # timespeed variable
 
 # read all the product urls
 urls = json.load(open("./Tesco/urls/product_urls.json"))
 urls = list(dict.fromkeys(urls))
-
-# timespeed variable
-speed = []
 
 # iterate the scraping process in batches
 index = list(range(0,len(urls)))
@@ -51,12 +49,12 @@ for r in range(st,R):
     try:
         start = time.time()
         a, b = x[r], x[r+1]
-        results = asyncio.run(af.render_all(logic.scraper,urls[a:b]))
-        for i, result in zip(index[a:b],results):
-            if result != None:
-                dest_file = dest_folder + f"{i:05d}.json"
-                if not os.path.exists(dest_file):
-                    json.dump(result,open(dest_file,"w"))
+        # results = asyncio.run(af.render_all(logic.scraper,urls[a:b]))
+        # for i, result in zip(index[a:b],results):
+        #     if result != None:
+        #         dest_file = dest_folder + f"{i:05d}.json"
+        #         if not os.path.exists(dest_file):
+        #             json.dump(result,open(dest_file,"w"))
         results = []
         for i,url in zip(index[a:b],urls[a:b]):
             dest_file = dest_folder + f"{i:05d}.json"
