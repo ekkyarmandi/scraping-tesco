@@ -26,7 +26,7 @@ def scraper(src,html):
     if "nutriscore" in html.lower():
         it_has_nutriscore = True
     else:
-        it_has_nutriscore = True
+        it_has_nutriscore = False
     
     # find script tag
     try:
@@ -83,7 +83,7 @@ def scraper(src,html):
 
     # find product origin information
     try:
-        origin = product_info.find("div",{"class":"product-info-block","id":"manufacturer-address"}).find("li").text.strip().strip(",")
+        origin = product_info.find("div",{"class":"product-info-block","id":"manufacturer-address"}).find("ul").get_text()
     except:
         origin = None
         
