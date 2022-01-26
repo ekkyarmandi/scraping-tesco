@@ -1,6 +1,5 @@
 .virtual_documents/
 __pycache__/
-data/
 *.ipynb
 example-details.json
-!data/product_data.json
+data/
