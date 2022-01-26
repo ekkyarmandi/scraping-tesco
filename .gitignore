@@ -1,4 +1,5 @@
 .virtual_documents/
+.ipynb_checkpoints/
 __pycache__/
 *.ipynb
 example-details.json
