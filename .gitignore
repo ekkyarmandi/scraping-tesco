@@ -1,2 +1,4 @@
 *.ipynb
 example-details.json
+__pycache__/
+data/
